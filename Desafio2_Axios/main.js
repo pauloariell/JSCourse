@@ -1,17 +1,21 @@
-var minhaPromise = function(idade) {
+var minhaPromise = function () {
     return new Promise(function(resolve,reject){
-        window.setTimeout(
-            function(){
-            if (idade >= 18) {
-                resolve( 'Usuário maior de idade:'+idade);
-            } else {
-                reject('Usuário menor de idade!');
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET','https://api.github.com/users/pauloariell');
+        xhr.send(null);
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4){
+                if (xhr.status === 200) {
+                    resolve( JSON.parse(xhr.responseText));
+                } else {
+                    reject('Erro na requisição, status:'+ xhr.status);
+                }
             }
-        }, 2000)
+        }
     })
 }
-
-minhaPromise(17)
+minhaPromise()
     .then(function(response){
         console.log(response);
     })
