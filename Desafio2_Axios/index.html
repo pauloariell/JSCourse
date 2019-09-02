@@ -5,11 +5,16 @@
     <head>
         <title>Curso Javascript</title>
     </head>
-    <body>
-        <div id="app">
-            <!--<label for="idade">Idade</label>
-            <input type="numeric" name="idade">
-            <button id="btn" onclick="verifIdade()">Valida</button>-->
+    <link rel="stylesheet" href="style.css">
+    <body class="">
+        <div id="app" class="col-8">
+            <label for="gitUser" class="col-2">Github User</label>
+            <input type="text" id="gitUser" name="gitUser" class="col-8">
+            <button id="btn" class="col-2">Buscar</button>
+        </div>
+        <div id="list">
+            <h2>Repositorios</h2>
+            <ul name="repos"></ul>
         </div>
         <script src="main.js"></script>    
     </body>
